@@ -58,4 +58,5 @@
 .main-header .btn:active,
 .main-header .btn.active {
   color: #ffa94d;
+  cursor: pointer;
 }

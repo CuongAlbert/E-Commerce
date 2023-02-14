@@ -12,4 +12,5 @@
 .categories .col:hover,
 .categories .col:active {
   opacity: 0.6;
+  cursor: pointer;
 }

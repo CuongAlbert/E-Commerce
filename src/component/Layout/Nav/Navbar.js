@@ -22,19 +22,28 @@ const Navbar = (props) => {
 
     navigate("/login");
   };
+
+  const toHomePageHandler = () => {
+    navigate("/");
+  };
+
+  const toShopPageHandler = () => {
+    navigate("/shop");
+  };
+
+  const toLoginPageHandler = () => {
+    navigate("/login");
+  };
+
   return (
     <header className={classes["main-header"]}>
       <nav>
         <ul>
-          <li>
-            <Link to="/" className={classes.btn}>
-              Home
-            </Link>
+          <li className={classes.btn} onClick={toHomePageHandler}>
+            Home
           </li>
-          <li>
-            <Link to="/shop" className={classes.btn}>
-              Shop
-            </Link>
+          <li className={classes.btn} onClick={toShopPageHandler}>
+            Shop
           </li>
         </ul>
       </nav>
@@ -68,11 +77,9 @@ const Navbar = (props) => {
         {/* Nếu người dùng chưa login thì chỉ hiển thị login để đăng nhập */}
         {isLogin === false && (
           <ul>
-            <li>
+            <li className={classes.btn} onClick={toLoginPageHandler}>
               <BsPersonFill className={classes.icon} />
-              <Link to="/login" className={classes.btn}>
-                Login
-              </Link>
+              Login
             </li>
           </ul>
         )}

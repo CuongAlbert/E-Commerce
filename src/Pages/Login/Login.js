@@ -19,7 +19,7 @@ import { loginActions } from "../../store/login";
 
 const Login = () => {
   //Lấy dữ liệu mảng người dùng đã đăng ký
-  const useArr = JSON.parse(localStorage.getItem("useArr")); 
+  const useArr = JSON.parse(localStorage.getItem("useArr"));
 
   const navigate = useNavigate();
   const [passwordValid, setPasswordValid] = useState(true);
@@ -36,26 +36,34 @@ const Login = () => {
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
 
-    //Trả về mảng để check trùng email (gọi hàm từ store)
-    const userEmail = checkEmail(enteredEmail, useArr);
-
-    // Check ô email, nếu có giá trị hợp lệ, check password
-    if (!isEmpty(enteredEmail)) {
-      if (userEmail.length === 0) {
-        alert("You are not sign up. Please SIGN UP now");
-        navigate("/register");
-      } else if (userEmail[0].password !== enteredPassword) {
-        setPasswordValid(false);
-        passwordInputRef.current.value = "";
-      } else {
-        setPasswordValid(true);
-
-        dispatch(loginActions.onLogin(userEmail[0]));
-
-        navigate("/", { replace: true });
-      }
+    if (useArr === null) {
+      alert("You are not sign up. Please SIGN UP now");
+      navigate("/register");
     } else {
-      alert("please input valid email");
+      //Trả về mảng để check trùng email (gọi hàm từ store)
+
+      const userEmail = checkEmail(enteredEmail, useArr);
+
+      console.log("userEmail", userEmail);
+
+      // Check ô email, nếu có giá trị hợp lệ, check password
+      if (!isEmpty(enteredEmail)) {
+        if (userEmail.length === 0) {
+          alert("You are not sign up. Please SIGN UP now");
+          navigate("/register");
+        } else if (userEmail[0].password !== enteredPassword) {
+          setPasswordValid(false);
+          passwordInputRef.current.value = "";
+        } else {
+          setPasswordValid(true);
+
+          dispatch(loginActions.onLogin(userEmail[0]));
+
+          navigate("/", { replace: true });
+        }
+      } else {
+        alert("please input valid email");
+      }
     }
   };
 
