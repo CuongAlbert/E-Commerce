@@ -1,0 +1,43 @@
+.banner {
+  margin: 0 auto;
+}
+
+.banner img {
+  position: relative;
+  left: 2rem;
+  width: 98%;
+  height: 50%;
+  margin-bottom: 4rem;
+}
+
+.banner .content {
+  width: 20%;
+  position: absolute;
+  top: 30%;
+  left: 4rem;
+}
+
+.content p {
+  color: #adb5bd;
+  font-size: 22px;
+}
+
+.content h1 {
+  color: #212529;
+  font-size: 44px;
+  font-weight: 480;
+}
+
+.content .btn {
+  background-color: #212529;
+  font-size: 24px;
+  outline: none;
+  padding: 0.5rem 1.5rem;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.btn a {
+  color: #f8f9fa;
+  text-decoration: none;
+}

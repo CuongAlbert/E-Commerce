@@ -1,0 +1,22 @@
+.footer {
+  background-color: black;
+  color: rgb(124, 124, 124);
+  font-weight: 700;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.footer .footer-title {
+  margin: 4rem 2rem 2rem;
+}
+
+.footer ul {
+  list-style: none;
+  padding-bottom: 4rem;
+}
+
+.footer a {
+  text-decoration: none;
+  color: rgb(77, 77, 77);
+  font-weight: 500;
+}

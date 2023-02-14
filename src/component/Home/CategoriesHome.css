@@ -1,0 +1,15 @@
+.categories {
+  background-color: #ffffff;
+}
+.categories .row {
+  justify-content: center;
+}
+.categories .col {
+  padding: 2rem;
+  width: 100%;
+}
+
+.categories .col:hover,
+.categories .col:active {
+  opacity: 0.6;
+}

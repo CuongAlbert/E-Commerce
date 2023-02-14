@@ -1,0 +1,28 @@
+.p {
+  color: #adb5bd;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.h1 {
+  color: #212529;
+  font-size: 44px;
+  font-weight: 480;
+}
+
+.extra-service {
+  margin-top: 3rem;
+}
+
+.infor {
+  margin: 4rem 0;
+}
+.infor .col {
+  height: 80px;
+}
+
+.infor .btn {
+  width: 140px;
+  font-size: 24px;
+  color: aliceblue;
+}

@@ -1,0 +1,63 @@
+.detail {
+  margin: 6rem 2rem;
+}
+
+.detail img {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.detail h5,
+.detail h4,
+.detail h2,
+.detail p {
+  margin: 2rem 0;
+}
+.detail .addToCart {
+  display: flex;
+  column-gap: 1rem;
+  align-items: center;
+}
+
+.detail .addToCart h3 {
+  margin-right: 4rem;
+}
+
+.detail .addToCart input {
+  outline: none;
+  border: none;
+  width: 50px;
+  font-size: 24px;
+}
+
+.detail .btn {
+  border: none;
+}
+
+.title {
+  background-color: #212529;
+  color: aliceblue;
+  width: fit-content;
+  padding: 1rem 2rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+.pro_desc {
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.desc {
+  width: 45%;
+  margin-left: 2rem;
+}
+
+.related_prod {
+  margin-top: 4rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.relate_container {
+  margin-left: 2rem;
+}

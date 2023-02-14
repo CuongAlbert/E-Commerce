@@ -1,0 +1,33 @@
+.bill {
+  margin: 0 2rem;
+  background-color: aliceblue;
+}
+
+.title {
+  margin: 2rem;
+}
+
+.bill .form {
+  font-weight: 700;
+  margin-bottom: 4rem;
+  width: 80%;
+}
+
+.bill .name {
+  font-weight: 700;
+}
+
+.bill .btn {
+  font-size: 20px;
+}
+.billTotal {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+.billDetail {
+  display: flex;
+  gap: 4px;
+}
