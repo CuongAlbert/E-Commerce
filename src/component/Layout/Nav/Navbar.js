@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { loginActions } from "../../../store/login";
@@ -11,24 +11,19 @@ import classes from "./Navbar.module.css";
 
 const Navbar = (props) => {
   const personalInfor = JSON.parse(localStorage.getItem("personalInfor")); //Lấy dữ liệu người dùng
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLogin = useSelector((state) => state.login.isLogin); //lấy giá trị từ store xem người dùng có đang login k
 
   const logoutHandler = () => {
-    dispatch(loginActions.onLogout());
-    dispatch(cartActions.logoutCart());
+    // hỏi người dùng trước khi logout
+    const logout = window.confirm("Do you wanna logout?");
+    if (logout) {
+      dispatch(loginActions.onLogout());
+      dispatch(cartActions.logoutCart());
+    } else return;
 
     navigate("/login");
-  };
-
-  const toHomePageHandler = () => {
-    navigate("/");
-  };
-
-  const toShopPageHandler = () => {
-    navigate("/shop");
   };
 
   const toLoginPageHandler = () => {
@@ -39,11 +34,25 @@ const Navbar = (props) => {
     <header className={classes["main-header"]}>
       <nav>
         <ul>
-          <li className={classes.btn} onClick={toHomePageHandler}>
-            Home
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? `${classes.active}` : `${classes.btn}`
+              }
+            >
+              Home
+            </NavLink>
           </li>
-          <li className={classes.btn} onClick={toShopPageHandler}>
-            Shop
+          <li>
+            <NavLink
+              to="/shop"
+              className={({ isActive }) =>
+                isActive ? `${classes.active}` : `${classes.btn}`
+              }
+            >
+              Shop
+            </NavLink>
           </li>
         </ul>
       </nav>
@@ -56,10 +65,15 @@ const Navbar = (props) => {
         {isLogin === true && personalInfor && (
           <ul>
             <li>
-              <FaLuggageCart className={classes.icon} />
-              <Link to="/cart" className={classes.btn}>
+              <NavLink
+                to="/cart"
+                className={({ isActive }) =>
+                  isActive ? `${classes.active}` : `${classes.btn}`
+                }
+              >
+                <FaLuggageCart className={classes.icon} />
                 Cart
-              </Link>
+              </NavLink>
             </li>
             <li className={classes.name}>
               <BsPersonFill className={classes.icon} />
@@ -77,9 +91,17 @@ const Navbar = (props) => {
         {/* Nếu người dùng chưa login thì chỉ hiển thị login để đăng nhập */}
         {isLogin === false && (
           <ul>
-            <li className={classes.btn} onClick={toLoginPageHandler}>
-              <BsPersonFill className={classes.icon} />
-              Login
+            <li>
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive ? `${classes.active}` : `${classes.btn}`
+                }
+                onClick={toLoginPageHandler}
+              >
+                <BsPersonFill className={classes.icon} />
+                Login
+              </NavLink>
             </li>
           </ul>
         )}

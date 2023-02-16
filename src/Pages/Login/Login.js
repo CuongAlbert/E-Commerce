@@ -36,21 +36,16 @@ const Login = () => {
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
 
-    if (useArr === null) {
-      alert("You are not sign up. Please SIGN UP now");
-      navigate("/register");
-    } else {
-      //Trả về mảng để check trùng email (gọi hàm từ store)
+    // Check ô email, nếu có giá trị hợp lệ, check password
+    if (!isEmpty(enteredEmail)) {
+      if (useArr === null) {
+        alert("You are not SIGN UP. Please SIGN UP now");
+      } else {
+        //Trả về mảng để check trùng email (gọi hàm từ store)
+        const userEmail = checkEmail(enteredEmail, useArr);
 
-      const userEmail = checkEmail(enteredEmail, useArr);
-
-      console.log("userEmail", userEmail);
-
-      // Check ô email, nếu có giá trị hợp lệ, check password
-      if (!isEmpty(enteredEmail)) {
         if (userEmail.length === 0) {
           alert("You are not sign up. Please SIGN UP now");
-          navigate("/register");
         } else if (userEmail[0].password !== enteredPassword) {
           setPasswordValid(false);
           passwordInputRef.current.value = "";
@@ -61,9 +56,9 @@ const Login = () => {
 
           navigate("/", { replace: true });
         }
-      } else {
-        alert("please input valid email");
       }
+    } else {
+      alert("please input valid email");
     }
   };
 

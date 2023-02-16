@@ -22,13 +22,13 @@
 .amount button {
   border: none;
   outline: none;
-  background-color: aliceblue;
+  background-color: transparent;
 }
 .cart .remove {
   font-size: 22px;
   border: none;
   outline: none;
-  background-color: aliceblue;
+  background-color: transparent;
   margin: 0;
 }
 

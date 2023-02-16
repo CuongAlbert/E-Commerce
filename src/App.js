@@ -51,7 +51,7 @@ function App() {
         style={{
           fontSize: "3rem",
           border: "none",
-          backgroundColor: "none",
+          backgroundColor: "transparent",
           position: "fixed",
           bottom: "2rem",
           right: "2rem",

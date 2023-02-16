@@ -6,6 +6,17 @@
   color: #212529;
   font-weight: 700;
 }
+
+.shop .active {
+  color: #ffa94d;
+  font-size: 22px;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  font-style: italic;
+  text-decoration: none;
+}
+
 .shop .title {
   background-color: #e9ecef;
   font-size: 18px;

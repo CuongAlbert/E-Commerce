@@ -54,6 +54,17 @@
   text-decoration: none;
 }
 
+.main-header .active {
+  color: #ffa94d;
+  font-size: 22px;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  background-color: #ffffff;
+  font-style: italic;
+  text-decoration: none;
+}
+
 .main-header .btn:hover,
 .main-header .btn:active,
 .main-header .btn.active {

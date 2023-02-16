@@ -8,7 +8,7 @@ import classes from "./Shop.module.css";
 const Shop = () => {
   const [category, setCategory] = useState("all");
 
-  const clickHandler = (e) => { 
+  const clickHandler = (e) => {
     // Bắt nội dung khi click vào sidebar
     setCategory(e.target.textContent.toLowerCase());
   };
@@ -20,18 +20,63 @@ const Shop = () => {
           <Col sm={2}>
             <h3>CATEGORIES</h3>
             <ul>APPLE</ul>
-            <li onClick={clickHandler}>All</li>
+            <li
+              onClick={clickHandler}
+              className={category === "all" ? classes.active : undefined}
+            >
+              All
+            </li>
             <h3 className={classes.title}>IPHONE & MAC</h3>
-            <li onClick={clickHandler}>IPhone</li>
-            <li onClick={clickHandler}>Ipad</li>
-            <li onClick={clickHandler}>Macbook</li>
+            <li
+              onClick={clickHandler}
+              className={category === "iphone" ? classes.active : undefined}
+            >
+              IPhone
+            </li>
+            <li
+              onClick={clickHandler}
+              className={category === "ipad" ? classes.active : undefined}
+            >
+              Ipad
+            </li>
+            <li
+              onClick={clickHandler}
+              className={category === "macbook" ? classes.active : undefined}
+            >
+              Macbook
+            </li>
             <h3 className={classes.title}>WIRELESS</h3>
-            <li onClick={clickHandler}>Airpod</li>
-            <li onClick={clickHandler}>Watch</li>
+            <li
+              onClick={clickHandler}
+              className={category === "airpod" ? classes.active : undefined}
+            >
+              Airpod
+            </li>
+            <li
+              onClick={clickHandler}
+              className={category === "watch" ? classes.active : undefined}
+            >
+              Watch
+            </li>
             <h3 className={classes.title}>OTHERS</h3>
-            <li onClick={clickHandler}>Mouse</li>
-            <li onClick={clickHandler}>Keyboard</li>
-            <li onClick={clickHandler}>Other</li>
+            <li
+              onClick={clickHandler}
+              className={category === "mouse" ? classes.active : undefined}
+            >
+              Mouse
+            </li>
+            <li
+              onClick={clickHandler}
+              className={category === "keyboard" ? classes.active : undefined}
+            >
+              Keyboard
+            </li>
+            <li
+              onClick={clickHandler}
+              className={category === "other" ? classes.active : undefined}
+            >
+              Other
+            </li>
           </Col>
           <Col sm={10}>
             <Categories category={category} />

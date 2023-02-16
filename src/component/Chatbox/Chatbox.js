@@ -13,11 +13,14 @@ const Chatbox = (props) => {
 
   const addMess = () => {
     // Lấy thông tin message từ ô input
-    const enteredMess = messInputRef.current.value;
-
-    // Message nếu ko trống thì add vào mảng messArr
-    if (enteredMess.trim() !== "") setMessArr((mess) => [...mess, enteredMess]);
-    messInputRef.current.value = "";
+    const enteredMess = messInputRef?.current?.value;
+    // input nếu ko trống thì add vào mảng messArr
+    if (enteredMess?.trim() !== "") {
+      setMessArr((mess) => [...mess, enteredMess]);
+    }
+    if (messInputRef.current && messInputRef.current.value) {
+      messInputRef.current.value = "";
+    }
   };
 
   // Hàm bấm enter
@@ -57,7 +60,11 @@ const Chatbox = (props) => {
       </div>
       <div className={classes.chat_content}>
         {messArr &&
-          messArr.map((mes) => <p className={classes.chat_mess}>{mes}</p>)}
+          messArr.map((mes, i) => (
+            <p key={i} className={classes.chat_mess}>
+              {mes}
+            </p>
+          ))}
       </div>
       <div className={classes.chat_tool}>
         <span className={classes.chat_manager}>
